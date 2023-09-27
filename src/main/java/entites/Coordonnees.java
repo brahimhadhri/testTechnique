@@ -1,5 +1,4 @@
-package com.example.testTechnique;
-
+package entites;
 public class Coordonnees {
 	
 	private int x ; 
@@ -22,6 +21,7 @@ public class Coordonnees {
 	public void setY(int y) {
 		this.y = y;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -30,6 +30,7 @@ public class Coordonnees {
 		result = prime * result + y;
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -45,5 +46,8 @@ public class Coordonnees {
 			return false;
 		return true;
 	} 
+	
+	
+	
 
 }
