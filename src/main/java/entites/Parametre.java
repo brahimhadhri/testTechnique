@@ -41,8 +41,6 @@ public class Parametre {
 
 	}
 	
-	
-	
 	public static enum InstructionTondeuse{
 		DROITE('D', "Pivoter à droite"),
 		GAUCHE('G', "Pivoter à gauche"),
