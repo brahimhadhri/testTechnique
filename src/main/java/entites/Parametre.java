@@ -40,6 +40,41 @@ public class Parametre {
 
 
 	}
+	
+	
+	
+	public static enum InstructionTondeuse{
+		DROITE('D', "Pivoter à droite"),
+		GAUCHE('G', "Pivoter à gauche"),
+		AVANCER('A', "Avancer");
+		
+		private String libelleInstruction;
+		private char codeInstruction;
+		private InstructionTondeuse( char codeInstruction,String libelleInstruction) {
+			this.libelleInstruction = libelleInstruction;
+			this.codeInstruction = codeInstruction;
+		}
+		
+		public String getLibelleInstruction() {
+			return libelleInstruction;
+		}
+		public void setLibelleInstruction(String libelleInstruction) {
+			this.libelleInstruction = libelleInstruction;
+		}
+		public char getCodeInstruction() {
+			return codeInstruction;
+		}
+		public void setCodeInstruction(char codeInstruction) {
+			this.codeInstruction = codeInstruction;
+		}
+		
+
+	}
+		
+		
+		
+		
+		
 
 
 
