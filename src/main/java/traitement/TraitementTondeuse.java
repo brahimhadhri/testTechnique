@@ -15,12 +15,7 @@ public class TraitementTondeuse {
 	private List<Parametre.InstructionTondeuse> listeInstruction;
 	
 	
-	public TraitementTondeuse(Pelouse pelouse, TondeusePosition tondeusePosition,
-			List<InstructionTondeuse> listeInstruction) {
-		this.pelouse = pelouse;
-		this.tondeusePosition = tondeusePosition;
-		this.listeInstruction = listeInstruction;
-	}
+	
 	public Pelouse getPelouse() {
 		return pelouse;
 	}
@@ -41,11 +36,29 @@ public class TraitementTondeuse {
 		this.listeInstruction = listeInstruction;
 	}
 	public String toString(){
+		
+		
 		return 	tondeusePosition.getCoordonneesTondeuse().getX() 
 				+ " " 
 				+ tondeusePosition.getCoordonneesTondeuse().getY()
 				+ " " 
 				+ tondeusePosition.getOrientationTondeuse().getCodeOrientation() ;
+	}
+	
+	
+	/**
+	 * executer l'ensemble des insctructions par une tondeuse
+	 * @throws asus
+	 */
+	
+	
+	public void executerInstructionsTondeuse() throws ExceptionTondeuse{
+		
+		for(InstructionTondeuse instruction : listeInstruction){
+			
+			TraitementInstructionTondeuse.executerInstruction(tondeusePosition,
+					instruction, this.pelouse.getPosMax());
+		}
 	}
 	
 
