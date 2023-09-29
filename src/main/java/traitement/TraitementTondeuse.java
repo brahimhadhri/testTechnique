@@ -3,6 +3,8 @@ package traitement;
 
 import java.util.List;
 
+import com.example.testTechnique.ExceptionTondeuse;
+
 import entites.Parametre;
 import entites.Parametre.InstructionTondeuse;
 import entites.Pelouse;

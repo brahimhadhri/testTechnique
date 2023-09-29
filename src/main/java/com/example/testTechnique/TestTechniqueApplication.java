@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import entites.Parametre;
 import parcer.ParserTondeuse;
-import traitement.ExceptionTondeuse;
 import traitement.FormaterLigne;
 import traitement.TraitementTondeuse;
 
@@ -20,8 +19,12 @@ public class TestTechniqueApplication {
 
 	protected static List<String> listResultats;
 
-	public static void main(String[] args) throws ExceptionTondeuse, IOException {
+	public static void main(String... args) throws ExceptionTondeuse, IOException {
 
+		//SpringApplication.run(TestTechniqueApplication.class, args);
+		
+		//final String CHEMIN_FICHIER = "./src/test/resources/fichier_xebia.txt"; 
+		
 		if (args.length == 1) {
 			File file = new File(args[0]);
 			TestTechniqueApplication instance = new TestTechniqueApplication();
@@ -29,11 +32,16 @@ public class TestTechniqueApplication {
 		} else {
 			throw new IllegalArgumentException();
 		}
-
-
-		SpringApplication.run(TestTechniqueApplication.class, args);
 	}
 
+	/**
+	 * lecture/validation du fichier et lancement des tondeuses
+	 * 
+	 * @param fichier
+	 * @throws ExceptionTondeuse
+	 * @throws IOException
+	 * @return List<String> : position des tondeuses
+	 */
 	private List<String> lancerTraitementsTondeuses(File fichier)
 			throws ExceptionTondeuse, IOException {
 		if (!fichier.isFile()) {
@@ -110,10 +118,9 @@ public class TestTechniqueApplication {
 					.formaterLigneTondeuse(parser.getTondeuse()));
 			traitement.setListeInstruction(FormaterLigne
 					.formaterLigneInstruction(parser.getInstructions()));
-			traitement.executerInstructionsTondeuse();;
+			traitement.executerInstructionsTondeuse();
 			System.out.println(traitement);
 			return traitement.toString();
 		}
 	}
-
 }
